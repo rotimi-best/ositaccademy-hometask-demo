@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// Import individual tasks
+// import Task1 from './components/Task1';
+// import Task2 from './components/Task2';
+// import Task3 from './components/Task3';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Render each home task, all I will do is to uncomment them to check them */}
+      {/* <Task1 /> */}
+      {/* <Task2 /> */}
+      {/* <Task3 /> */}
     </div>
   );
 }
