@@ -1,0 +1,21 @@
+.paginator {
+    margin-bottom: 20px;
+}
+
+.paginator button {
+    background-color: rgb(7, 162, 201);
+    font-size: 16px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    transition: 0.2s;
+}
+
+.paginator button:hover {
+    background-color: rgb(4, 89, 110);
+    color: rgba(255, 255, 255, 0.8);
+
+}
