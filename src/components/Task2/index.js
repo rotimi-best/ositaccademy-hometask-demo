@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Todo from "./Todo/Todo";
 
-export default function Task2() {
-  return (
-    <div>
-      Render here task 2
-    </div>
-  )
-}
+const Task2 = () => {
+    return (
+        <div>
+            <Todo/>
+        </div>
+    );
+};
+
+export default Task2;

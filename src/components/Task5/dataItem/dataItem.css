@@ -1,0 +1,8 @@
+.data-item{
+    padding: 20px 15px;
+    border: 2px solid black;
+    margin: 10px;
+}
+.data-item div{
+    margin-bottom: 10px;
+}
