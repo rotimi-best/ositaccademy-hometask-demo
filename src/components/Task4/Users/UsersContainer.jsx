@@ -1,6 +1,6 @@
 import React from 'react';
 import Users from './Users'
-import { usersAPI } from '../api/api'
+import { reguestAPI } from '../../api/api'
 
 class UsersContainer extends React.Component {
     state = {
@@ -18,22 +18,24 @@ class UsersContainer extends React.Component {
 
     }
     componentDidMount() {
-        this.requestUsers(this.state.currentPage)
+        this.requestUsers(this.state.currentPage);
+
     }
 
     requestUsers = async (page) => {
-       let response = await usersAPI.getUsers(page);
+       let response = await reguestAPI.getUsers(page);
        if (response.status === 200) {
-           console.log(response)
            this.setState({
                users:[...response.data]
            })
        }
     }
+
     onPageChanged = (page) => {
         this.setCurrentPage(page)
         this.requestUsers(page)
     }
+    
     setCurrentPage = (page) => {
         this.setState((state) => ({currentPage: page }))
     }

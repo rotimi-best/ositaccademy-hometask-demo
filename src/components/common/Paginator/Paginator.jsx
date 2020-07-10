@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './Paginator.module.css'
-const Paginator = ({state: {totatUsersQuantity, pageSize, currentPage}, onPageChanged, portionSize=10}) => {
+const Paginator = ({totatUsersQuantity, pageSize, currentPage, onPageChanged=null}) => {
     let pagesQuantity = Math.ceil(totatUsersQuantity / pageSize);
     let pages = [];
     for (let i = 1; i <= pagesQuantity; i++) {

@@ -1,0 +1,47 @@
+.gallery_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery_container {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-around;
+width: 70%;
+padding: 50px;
+
+}
+
+.image_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery_image img{
+    display: block;
+    width: 300px;
+    height: 200px;
+}
+
+.gallery_leftButton button,
+.gallery_rightButton button {
+    padding: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgb(109, 0, 160);
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    outline: none;
+}
+
+.gallery_leftButton button:hover,
+.gallery_rightButton button:hover {
+    color: #fff;
+    background-color: rgb(160, 0, 107);
+
+}
