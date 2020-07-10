@@ -78,3 +78,235 @@
   color: red;
   position: absolute;
 }
+
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.login button {
+  width: 150px;
+  height: 80px;
+  text-align: center;
+  position: relative;
+}
+
+.login_image{
+  position: absolute;
+  top: calc(50% - 10px);
+  right: 10px;
+}
+
+.login_image img{
+  display: block;
+  width: 20px;
+}
+
+
+
+.burger_menu {
+  position: relative;
+  height: 500px;
+}
+
+.burger_menu .container {
+margin-left: 20%;
+}
+
+.burger_menu nav{
+  display: inline-block;
+  border: 0.1rem solid #333;
+  padding: 3rem;
+}
+
+.burger_menu ul{
+    list-style-type: none;
+    padding: 0;
+    margin-top: 4rem;
+  }
+
+.burger_menu ul li {
+      line-height: 3rem;
+    }
+
+.burger_menu ul li a{
+          color: #44B;
+          text-decoration: none;
+        }
+
+.burger_menu button{
+  border-radius: 0.3rem;
+  border-width: 0;
+  color: #44B;
+  font-size: 1.6rem;
+  outline-width: 0;
+  cursor: pointer;
+  position: absolute;
+  left: 50px;
+  top: 10px;
+
+  margin: 1rem;
+}
+
+.burger_menu button:hover{
+    opacity: 0.7;
+  }
+
+.burger_menu button:before{
+    content: '';
+    display: inline-block;
+    background-image: url(https://i.imgur.com/MCnjU2q.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .animal .container {
+    text-align: center;
+    margin-left: 350px;
+  }
+  .animal_items {
+    display: flex;
+    justify-content: space-evenly;
+  }   
+  .atimal_image {
+    flex-basis: 20%;
+  }
+  .animal_controls {
+    text-align: center;
+    padding: 50px;
+  }
+
+  .animal_controls button {
+    margin-right: 15px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #44B;
+    border-radius: 10px;
+    background-color: rgb(45, 167, 248);
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+
+  .animal_controls button:hover {
+    background-color: rgb(45, 167, 248, 0.5);
+  }
+
+  .todoItem {
+    width: 35%;
+    padding: 20px;
+    border: 2px solid rgb(0, 85, 33);
+    border-radius: 10px;
+    font-size: 26px;
+    margin-bottom: 10px;
+
+  }
+
+  .done {
+    text-decoration: line-through;
+  }
+  
+  .start {
+    text-decoration: underline;
+  }
+  
+  .inProgess {
+    text-decoration: none;
+  }
+
+
+  .displayMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .displayMessage button {
+    margin-bottom: 15px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #44B;
+    border-radius: 10px;
+    background-color: rgb(45, 167, 248);
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+
+  .displayMessage p {
+    font-size: 40px;
+    color: rgb(167, 0, 0)
+  }
+
+  .displayMessage p span {
+    font-size: 50px;
+    color: rgb(0, 8, 78)
+  }
+
+  .displayButton {
+    position: absolute;
+    top: 63px;
+    left: 43%;
+  }
+
+  .generateButton {
+    position: absolute;
+    top: 190px;
+    left: 43%;
+  }
+
+  .ReportCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 220px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    position: relative;
+    font-size: 20px;
+  }
+
+  .notification_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 10px;
+    position: relative;
+    font-size: 20px;
+}
+  
+  .info {
+    border: 2px solid blue;
+    padding: 10px;
+  }
+  
+  .error {
+    border: 2px solid red;
+    padding: 10px;
+  }
+  
+  .warning {
+    border: 2px solid orange;
+    padding: 10px;
+  }
