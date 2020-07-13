@@ -1,0 +1,63 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica;
+  font-size: 1.4rem;
+  padding: 2rem;
+}
+
+#task2 nav {
+  display: inline-block;
+  border: 0.1rem solid #333;
+  padding: 3rem;
+}
+
+#task2 ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 4rem;
+}
+
+#task2 li {
+  line-height: 3rem;
+}
+
+#task2 a {
+  color: #44B;
+  text-decoration: none;
+}
+
+#task2 button {
+  border-radius: 0.3rem;
+  border-width: 0;
+  color: #44B;
+  font-size: 1.6rem;
+  outline-width: 0;
+  cursor: pointer;
+  position: absolute;
+  margin: 1rem;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    background-image: url(https://i.imgur.com/MCnjU2q.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+#task2 .none {
+  display: none;
+}
+
+#drawer div {
+  position: relative;
+}
