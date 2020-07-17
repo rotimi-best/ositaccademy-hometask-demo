@@ -3,49 +3,27 @@ import classes from './Bookmarker.module.css'
 import BookmarkInput from './BookmarkInput'
 
 class BookmarkForm extends React.Component {
-    state={
-        siteName: '',
-        siteURL: '',
-        inputNameText:'',
-        inputUrlText: ''
-    }
+
 
     onTextChange = (inputText, inputId) => {
-        switch (inputId) {
-            case 'siteName':
-            this.setState({
-                inputNameText: inputText
-            })
-            break;
 
-            case 'siteURL':
-                this.setState({
-                    inputUrlText: inputText
-                })
-                break;
-
-            default: 
-            return null
-        }
+        this.props.onTextChange(inputText, inputId)
     }
 
     onInputBlur = (inputId) => {
-        switch (inputId) {
-                    case 'siteName':
-                    this.setState({
-                        siteName: this.state.inputNameText
-                    })
-                    break;
         
-                    case 'siteURL':
-                        this.setState({
-                            siteURL: this.state.inputUrlText
-                        })
-                        break;
+        this.props.onInputBlur(inputId)
+    }
+    
+
+
+
+    onFormSubmit = (e) => {
+        e.preventDefault()
+        let siteName = this.props.siteName;
+        let siteURL = this.props.siteURL;
+        this.validateForm(siteName, siteURL)
         
-                    default: 
-                    return null
-                }
     }
 
     validateForm = (siteName, siteUrl) => {
@@ -53,54 +31,93 @@ class BookmarkForm extends React.Component {
             alert('Please fill the form');
             return false;
         }
-    
+
         var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
         var regex = new RegExp(expression);
-    
+
         if (!siteUrl.match(regex)) {
             alert('Please use a valid url');
             return false;
         }
-    
-        this.props.getFormData(siteName, siteUrl)
-        this.setState({
-            inputNameText: '',
-            inputUrlText: ''
-        })
+        this.props.isEditModeActive ? this.updateBookmark(siteName, siteUrl) : this.setBookmark(siteName, siteUrl)
+        
+        this.props.setInputData()
     }
 
-    onFormSubmit = (e) => {
-        e.preventDefault()
-        let siteName = this.state.siteName;
-        let siteURL = this.state.siteURL;
-        this.validateForm(siteName, siteURL)
+    setBookmark = (title, url) => {
+        let request = new XMLHttpRequest();
+        let bookmarkURL = `https://rotimi-best-cargo-transportation-api.glitch.me//bookmark/2`
+        request.open('POST', bookmarkURL);
+        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        let bookmarkData = JSON.stringify({
+            title,
+            url
+        })
+        request.send(bookmarkData);
 
+        request.onload = function () {
+            if (request.status !== 200) {
+                alert(`Ошибка ${request.status}: ${request.statusText}`);
+            } else {
+                this.props.getBookmarks()
+            }
+        }.bind(this);
+
+        request.onerror = function () {
+            alert("Запрос не удался");
+        };
+    }
+
+    updateBookmark = (title, url) => {
+        let bookmarkId = this.props.updatedBookmarkId
+        let request = new XMLHttpRequest();
+        let bookmarkURL = `https://rotimi-best-cargo-transportation-api.glitch.me//bookmark/2/${bookmarkId}`
+        request.open('PUT', bookmarkURL);
+        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        let bookmarkData = JSON.stringify({
+            title,
+            url
+        })
+        request.send(bookmarkData);
+
+        request.onload = function () {
+            if (request.status !== 200) {
+                alert(`Ошибка ${request.status}: ${request.statusText}`);
+            } else {
+                this.props.setEditModeData(false)
+                this.props.getBookmarks()
+            }
+        }.bind(this);
+
+        request.onerror = function () {
+            alert("Запрос не удался");
+        };
     }
 
 
     render() {
         return <form onSubmit={this.onFormSubmit}>
-        <BookmarkInput 
-        inputText={this.state.inputNameText}
-        onTextChange={this.onTextChange} 
-        onInputBlur={this.onInputBlur}
-        name='Site Name' 
-        id='siteName' />
+            <BookmarkInput
+                inputText={this.props.inputNameText}
+                onTextChange={this.onTextChange}
+                onInputBlur={this.onInputBlur}
+                name='Site Name'
+                id='siteName' />
 
 
-        <BookmarkInput 
-        inputText={this.state.inputUrlText}
-        onTextChange={this.onTextChange} 
-        onInputBlur={this.onInputBlur}
-        name='Site URL' 
-        id='siteURL' />
-
-        <button className={`${classes.btn} ${classes.btnPrimary}`} >Submit</button>
-    </form>
+            <BookmarkInput
+                inputText={this.props.inputUrlText}
+                onTextChange={this.onTextChange}
+                onInputBlur={this.onInputBlur}
+                name='Site URL'
+                id='siteURL' />
+            {this.props.isEditModeActive ? <button className={`${classes.btn} ${classes.btnPrimary}`} >Update bookmark</button> : 
+            <button className={`${classes.btn} ${classes.btnPrimary}`} >Submit</button> }
+        </form>
     }
 
 
-   
+
 }
 
 export default BookmarkForm;

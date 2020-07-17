@@ -22,20 +22,20 @@ function App() {
   return (
     <div className="App">
       {/* Render each home task, all I will do is to uncomment them to check them */}
-      <Names />
+      {/* <Names />
       <Todo />
       <Generator />
       <UsersContainer />
-      <Gallery />
+      <Gallery /> */}
       <Bookmarker />
-      <LoginTemplate />
+      {/* <LoginTemplate />
       <BurgerMenu />
       <Animals />
       <TodoList />
       <DisplayingMessage />
       <ReportCard />
       <AdminUsersList />
-      <NotificationMessage />
+      <NotificationMessage /> */}
       {/* This is task5 component with Error request */}
       {/* <ErrorEmitator />  */}
     </div>
