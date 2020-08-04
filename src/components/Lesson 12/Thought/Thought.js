@@ -11,19 +11,20 @@ const Thought = ({thought, onDelete, onToggleAct, updateText}) => {
     const {id, text, like, favorite, date} = thought;
     const onEdit = () => {
         setEdit(true)
-    }
-    const onChange = (e) => {
-
-        setInputValue(e.target.value)
-        console.log(inputValue)
+        setInputValue(text)
     };
+
+    const onChange = (e) => {
+        setInputValue(e.target.value)
+    };
+
     const onUpdate = () => {
-        updateText(id, inputValue,'edit')
+        updateText(id, inputValue, 'edit');
         setEdit(false)
     };
 
     let updateTime = Date.now() - date;
-    updateTime=Math.floor(updateTime/60000);
+    updateTime = Math.floor(updateTime / 60000);
 
     return (
         <Box style={{border: '1px solid grey'}} p={4} mb={2}>
@@ -31,7 +32,7 @@ const Thought = ({thought, onDelete, onToggleAct, updateText}) => {
                 <Grid item sm={10}>
                     {edit ?
                         <TextField
-                            value={text}
+                            value={inputValue}
                             type='text'
                             onChange={onChange}/>
                         :
