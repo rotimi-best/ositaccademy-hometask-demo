@@ -17,6 +17,7 @@ import Lesson7Task5 from './components/Lesson 7/Task5/Task5';
 import Lesson7Task6 from './components/Lesson 7/Task6/Task6';
 import Lesson7Task7 from './components/Lesson 7/Task7/Task7';
 import Lesson7Task8 from './components/Lesson 7/Task8/Task8';
+import Thoughts from "./components/Lesson 12/Thoughts";
 
 function App() {
     return (
@@ -48,7 +49,9 @@ function App() {
             {/*<Lesson7Task5 display={true}/>*/}
             {/*<Lesson7Task6/>*/}
             {/*<Lesson7Task7/>*/}
-            <Lesson7Task8/>
+            {/*<Lesson7Task8/>*/}
+
+            <Thoughts/>
         </div>
     );
 }

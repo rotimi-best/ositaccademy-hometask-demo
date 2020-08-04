@@ -69,7 +69,6 @@ export default class Lesson7Task8 extends React.Component {
         return (
             <div>
                 <h2>User List</h2>
-
                 <Notification notifications={notifications}/>
             </div>
         )
