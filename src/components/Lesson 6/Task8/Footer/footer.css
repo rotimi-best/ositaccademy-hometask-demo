@@ -1,0 +1,15 @@
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media screen and (min-width: 768px) {
+
+    .footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
